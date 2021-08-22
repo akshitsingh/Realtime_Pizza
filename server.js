@@ -2,17 +2,20 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const ejs = require('ejs');
-const ejsLayout = require('express-ejs-layouts')
+const expressLayout = require('express-ejs-layouts')
 
 const PORT = process.env.PORT || 3000;
 
-app.use(ejsLayout);
-app.use('views',path.join(__dirname,'/resources'))
-app.set('view engine',ejs)
+global.__baseDir = __dirname
+
+// app.use(expressLayout);
+app.use(express.static('public'))
+app.set('views',path.join(__dirname,'/app/resources/views'))
+app.set('view engine','ejs')
 
 
 app.get('/',(req,res)=>{
-    res.send("Hello from server")
+    res.render('home')
 })
 
 app.listen(PORT , ()=>{
