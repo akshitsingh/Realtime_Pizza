@@ -20,17 +20,21 @@
          </div>
 
      <div class="pizza-list">
-         <div class="flex items-center my-8">
-             <img class="w-24" src="/img/pizza.png" alt="">
-             <div class="flex-1 ml-4">
-                 <h1>Marinara</h1>
-                 <span>Medium</span>
-             </div>
-             <span class="flex-1">1 Pcs</span>
-             <span class="font-bold text-lg">300</span>
-         </div>
+         <% for(let pizza of Object.values(cart.items)) { %>
+           
+          <div class="flex items-center my-8">
+            <img class="w-24" src="/img/pizza.png" alt="">
+                <div class="flex-1 ml-4">
+                    <h1> <%= pizza.name %></h1>
+                    <span><%= pizza.size %></span>
+                </div>
+                <span class="flex-1">1 Pcs</span>
+                <span class="font-bold text-lg">300</span>
+            </div>
 
-         <div class="flex items-center my-8">
+         <% } %>
+
+         <!-- <div class="flex items-center my-8">
             <img class="w-24" src="/img/pizza.png" alt="">
             <div class="flex-1 ml-4">
                 <h1>Marinara</h1>
@@ -48,7 +52,7 @@
             </div>
             <span class="flex-1">1 Pcs</span>
             <span class="font-bold text-lg">300</span>
-        </div>
+        </div> -->
      </div>
 
      <hr>
